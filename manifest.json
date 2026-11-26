@@ -1,0 +1,8 @@
+{
+  "name": "Delete Logger",
+  "description": "Keeps deleted messages visible with (deleted) and saves them",
+  "authors": [{ "name": "2p9" }],
+  "main": "index.js",
+  "hash": "1",
+  "vendetta": { "icon": "ic_trash_24px" }
+}
