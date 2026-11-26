@@ -8,6 +8,10 @@
 
   const cmp = (a, b) => (a.length !== b.length ? a.length - b.length : a < b ? -1 : a > b ? 1 : 0);
 
+  const clone = (x) => {
+    try { return JSON.parse(JSON.stringify(x || [])); } catch (e) { return []; }
+  };
+
   const getStorage = () => {
     try { return vendetta.plugin && vendetta.plugin.storage; } catch (e) { return null; }
   };
@@ -52,8 +56,8 @@
         bot: !!a.bot,
       },
       timestamp: ts,
-      type: 0, flags: 0, pinned: false, tts: false, mention_everyone: false,
-      mentions: [], mention_roles: [], attachments: [], embeds: [], components: [],
+      type: 0, flags: (m.flags || 0) & 8192, pinned: false, tts: false, mention_everyone: false,
+      mentions: [], mention_roles: [], attachments: clone(m.attachments), embeds: [], components: [],
     };
   };
 
